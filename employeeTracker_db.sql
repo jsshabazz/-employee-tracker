@@ -2,56 +2,64 @@ DROP DATABASE IF EXISTS employeeTracker_db;
 
 CREATE DATABASE employeeTracker_db;
 
-USE employeeTracker_db
+USE employeeTracker_db;
+
 
 CREATE TABLE department (
-  id INT PRIMARY KEY,
+  id INTEGER(11) AUTO_INCREMENT NOT NULL, 
   first_name VARCHAR(30),
-    super_id INT,
-  
+ PRIMARY KEY (id)
 );
 
 CREATE TABLE role (
-  id INT PRIMARY KEY,
+id INTEGER(11) AUTO_INCREMENT NOT NULL,
   title VARCHAR(30),
   salary DECIMAL (7,2),
  department_id INT,
+  PRIMARY KEY (id)
 );
 
 
 CREATE TABLE employee (
-  id INT PRIMARY KEY,
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,  
   first_name VARCHAR(30),
   last_name VARCHAR(30),
   role_id INT,
   manager_id INT,
+  PRIMARY KEY (id)
 );
 
 
 -- -----------------------------------------------------------------------------
 
 -- department
-INSERT INTO department VALUES(100, 'David', NULL, NULL);
+INSERT INTO department(first_name)
+VALUES('David');
 
-UPDATE department
-SET department_id = 1
-WHERE manager_id = 102;
+
 
 -- role 
-INSERT INTO role VALUES("title", , 75000, NULL);
+INSERT INTO role (title, salary)
+VALUES("supervisor", 75000.00);
 
 
-UPDATE employee
-SET department_id = 2
-WHERE manager_id = 103;
 
 
 -- employee
-INSERT INTO employee VALUES(2, 'John', 'Smith');
-INSERT INTO employee VALUES(2, 'Mary', 'Ann');
-INSERT INTO employee VALUES(3, 'Pookie', 'Johnson');
-INSERT INTO employee VALUES(2, 'Ray Ray', 'Jenekins');
+INSERT INTO employee (first_name, last_name)
+VALUES('John', 'Smith');
 
-INSERT INTO employee VALUES(3, ' Kim', 'Her');
+INSERT INTO employee (first_name, last_name)
+VALUES( 'Mary', 'Ann');
 
-INSERT INTO employee VALUES(4, ' Cardi', 'lee');
+INSERT INTO employee (first_name, last_name) 
+VALUES( 'Pookie', 'Johnson');
+
+INSERT INTO employee (first_name, last_name) 
+VALUES( 'Ray Ray', 'Jenekins');
+
+INSERT INTO employee (first_name, last_name) 
+VALUES( ' Kim', 'Her');
+
+INSERT INTO employee (first_name, last_name) 
+VALUES(' Cardi', 'lee');
